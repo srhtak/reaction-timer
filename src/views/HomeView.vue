@@ -1,18 +1,33 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+    <div class="home text-center">
+        <h1 class="title-gradient">Reaction Timer</h1>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import AOS from 'aos';
 export default {
-  name: "HomeView",
-  components: {
-    HelloWorld,
-  },
+    name: 'HomeView',
+    mounted() {
+        AOS.init();
+    },
+    data() {
+        return {
+            showModal: false,
+        };
+    },
+    methods: {
+        toggleModal() {
+            this.showModal = !this.showModal;
+        },
+    },
 };
 </script>
+
+<style lang="scss">
+body {
+    background-image: url('../assets/mesh.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+</style>
